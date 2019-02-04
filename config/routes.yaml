@@ -4,3 +4,9 @@
 app_lucky_number:
     path: /lucky/index
     controller: App\Controller\LuckyController::number
+    
+app_formation:
+    path: /create/formation
+    controller: App\Controller\LuckyController::Formation
+
+#https://symphony-paulobouriez.c9users.io/my_cv/public/index.php/lucky/index

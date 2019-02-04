@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Formation;
 
 class LuckyController extends Controller
 {
@@ -16,4 +17,17 @@ class LuckyController extends Controller
             ));
     }
     
+    public function Formation()
+    {
+        $form = new Formation();
+        
+        $form->setName('MMI');
+        $form->setDateStart(new \DateTime());
+        $form->setDateEnd(new \DateTime());
+        $form->setPlace('Grenoble');
+        $eManager = $this->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+        return $this->redirectToRoute('app_lucky_number');
+    }
 }

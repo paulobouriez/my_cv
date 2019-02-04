@@ -1,11 +1,11 @@
 <?php
-namespace app\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity (repositoryClass="AppBundle\Repository\FormationRepository")
- * @ORM\Table (name="app_user")
+ * @ORM\Table (name="formation")
  */
 
 class Formation
@@ -22,24 +22,80 @@ class Formation
      * 
      * @ORM\Column (type="string", name="name")
      */
-    private $name;
+    private $Name;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $DateStart;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $DateEnd;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $years;
+    private $Place;
+        /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
 
-    public function getYears(): ?string
+
+    public function getDateStart(): ?\DateTimeInterface
     {
-        return $this->years;
+        return $this->DateStart;
     }
 
-    public function setYears(?string $years): self
+    public function setDateStart(?\DateTimeInterface $DateStart): self
     {
-        $this->years = $years;
+        $this->DateStart = $DateStart;
 
         return $this;
     }
+    
+    
+
+    public function getDateEnd(): ?\DateTimeInterface
+    {
+        return $this->DateEnd;
+    }
+
+    public function setDateEnd(?\DateTimeInterface $DateEnd): self
+    {
+        $this->DateEnd = $DateEnd;
+
+        return $this;
+    }
+    
+
+    public function getPlace(): ?string
+    {
+        return $this->Place;
+    }
+
+    public function setPlace(?string $Place): self
+    {
+        $this->Place = $Place;
+
+        return $this;
+    }
+
+    
+    
+        public function getName(): ?string
+    {
+        return $this->Name;
+    }
+
+    public function setName(?string $Name): self
+    {
+        $this->Name = $Name;
+
+        return $this;
+    }
+
 
 }
 
