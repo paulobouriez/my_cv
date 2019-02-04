@@ -4,7 +4,7 @@ namespace app\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity (repositoryClass="AppBundle\Repository\FormationRepository")
+ * @ORM\Entity (repositoryClass="App\Repository\ExperienceRepository")
  * @ORM\Table (name="app_user")
  */
 

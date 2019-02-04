@@ -11,9 +11,13 @@ class LuckyController extends Controller
     {
         $number = random_int(1900, 2000);
 
+$forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
+
+
         return $this->render('lucky/index.html.twig', array(
             'number'=> $number,
-            'letters' => array()
+            'letters' => array(),
+            'formations' => $forms
             ));
     }
     
