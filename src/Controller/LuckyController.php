@@ -43,24 +43,24 @@ $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
     {
         $form = new Experience();
         
-        $form->setName('');
-        $form->setDateStart(new \DateTime());
-        $form->setDateEnd(new \DateTime());
-        $form->setPlace('');
-        $form->setText('');
+        $form1->setName('');
+        $form1->setDateStart(new \DateTime());
+        $form1->setDateEnd(new \DateTime());
+        $form1->setPlace('');
+        $form1->setText('');
         $eManager = $this->getDoctrine()->getManager();
-        $eManager->persist($form);
+        $eManager->persist($form1);
         $eManager->flush();
         return $this->redirectToRoute('app_lucky_number');
     }
     
      public function Loisir()
     {
-        $form = new Loisir();
+        $form2 = new Loisir();
         
-        $form->setName('');
+        $form2->setName('');
         $eManager = $this->getDoctrine()->getManager();
-        $eManager->persist($form);
+        $eManager->persist($form2);
         $eManager->flush();
         return $this->redirectToRoute('app_lucky_number');
     }

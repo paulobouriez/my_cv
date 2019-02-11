@@ -16,4 +16,29 @@ app_experience:
 app_loisir:
     path: /create/loisir
     controller: App\Controller\LuckyController::Loisir
+    
+    
+    
+    
+    
+    
+    
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+    
+form_formation:
+    path: /formation/create
+    controller: App\Controller\FormationController::create
+
+form_formation_edit:
+    path: /formation/edit/{id}
+    controller: App\Controller\FormationController::edit
+
+valid_formation:
+    path: /formation/valid
+    controller: App\Controller\FormationController::valid
+    
+
 #https://symphony-paulobouriez.c9users.io/my_cv/public/index.php/lucky/index
+
