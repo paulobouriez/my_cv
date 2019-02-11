@@ -2,76 +2,95 @@
 
 namespace App\Controller;
 
+use App\Entity\Loisir;
+use App\Form\LoisirType;
+use App\Repository\LoisirRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Loisir;
-use App\Form\LoisirType;
 
-class LoisirController extends AbstractController
+/**
+ * @Route("/loisir")
+ */
+class LoisirController extends Controller
 {
-    public function create()
+    /**
+     * @Route("/", name="loisir_index", methods={"GET"})
+     */
+    public function index(LoisirRepository $loisirRepository): Response
     {
-        $formation = new Loisir();
-        $form = $this->createForm(LoisirType::class, $loisir);
-        
-        return $this->render('Loisir/create.html.twig', [
-            'entity' => $loisir,
-            'form' => $form->createView(),
-            ]
-        );
+        return $this->render('loisir/index.html.twig', [
+            'loisirs' => $loisirRepository->findAll(),
+        ]);
     }
-    
 
-    public function edit($id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $formation = $entityManager->getRepository(Loisir::class)->findOneBy(['id' => $id]);
-        $form = $this->createForm(LoisirType::class, Loisir);
-       
-        return $this->render('Loisir/create.html.twig', [
-            'entity' => $loisir,
-            'form' => $form->createView(),
-            ]
-        );
-    }
-    
-    
-     public function valid(Request $request)
+    /**
+     * @Route("/new", name="loisir_new", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
     {
         $loisir = new Loisir();
         $form = $this->createForm(LoisirType::class, $loisir);
-        
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $formation = $form->getData();
-            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($loisir);
             $entityManager->flush();
-            
-            return $this->redirectToRoute('index');
+
+            return $this->redirectToRoute('loisir_index');
         }
-        
-        return $this->render('Loisir/create.html.twig', [
-            'entity' => $loisir,
+
+        return $this->render('loisir/new.html.twig', [
+            'loisir' => $loisir,
             'form' => $form->createView(),
-            ]
-        );
+        ]);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    /**
+     * @Route("/{id}", name="loisir_show", methods={"GET"})
+     */
+    public function show(Loisir $loisir): Response
+    {
+        return $this->render('loisir/show.html.twig', [
+            'loisir' => $loisir,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="loisir_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Loisir $loisir): Response
+    {
+        $form = $this->createForm(LoisirType::class, $loisir);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('loisir_index', [
+                'id' => $loisir->getId(),
+            ]);
+        }
+
+        return $this->render('loisir/edit.html.twig', [
+            'loisir' => $loisir,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="loisir_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Loisir $loisir): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$loisir->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($loisir);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('loisir_index');
+    }
 }

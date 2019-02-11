@@ -1,27 +1,50 @@
 <?php
+
 namespace App\Repository;
+
 use App\Entity\Experience;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * Experience repository.
+ * @method Experience|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Experience|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Experience[]    findAll()
+ * @method Experience[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ExperienceRepository extends EntityRepository
+class ExperienceRepository extends ServiceEntityRepository
 {
-    /**
-     * Find ...
-     */
-    public function findAllExperience()
-        {
-            $qBuilder = $this
-                ->getEntityManager()
-                ->createQueryBuilder();
-            
-            $qBuilder->select('f');
-            $qBuilder->from('AppBundle:Experience','f');
-            
-            $result = $qBuilder->getQuery()->getResult();
-            
-            return $result;
-        }
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Experience::class);
+    }
+
+    // /**
+    //  * @return Experience[] Returns an array of Experience objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('e.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Experience
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
 }

@@ -1,27 +1,50 @@
 <?php
+
 namespace App\Repository;
+
 use App\Entity\Loisir;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * Loisir repository.
+ * @method Loisir|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Loisir|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Loisir[]    findAll()
+ * @method Loisir[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LoisirRepository extends EntityRepository
+class LoisirRepository extends ServiceEntityRepository
 {
-    /**
-     * Find ...
-     */
-    public function findAllLoisir()
-        {
-            $qBuilder = $this
-                ->getEntityManager()
-                ->createQueryBuilder();
-            
-            $qBuilder->select('f');
-            $qBuilder->from('AppBundle:Loisir','f');
-            
-            $result = $qBuilder->getQuery()->getResult();
-            
-            return $result;
-        }
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Loisir::class);
+    }
+
+    // /**
+    //  * @return Loisir[] Returns an array of Loisir objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('l.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Loisir
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
 }

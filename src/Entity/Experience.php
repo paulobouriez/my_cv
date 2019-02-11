@@ -1,22 +1,20 @@
 <?php
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity (repositoryClass="App\Repository\ExperienceRepository")
- * @ORM\Table (name="experience")
+ * @ORM\Entity(repositoryClass="App\Repository\ExperienceRepository")
  */
-
 class Experience
 {
- /**
-     * @ORM\Id
-     * @ORM\Column (type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
-    protected $id;
-    
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -24,24 +22,29 @@ class Experience
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $place;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $dateStart;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $dateEnd;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $text;
+    private $Place;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Text;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getName(): ?string
     {
@@ -55,57 +58,51 @@ class Experience
         return $this;
     }
 
-    public function getPlace(): ?string
-    {
-        return $this->place;
-    }
-
-    public function setPlace(?string $place): self
-    {
-        $this->place = $place;
-
-        return $this;
-    }
-
-    public function getDateStart(): ?\DateTimeInterface
+    public function getDateStart(): ?string
     {
         return $this->dateStart;
     }
 
-    public function setDateStart(?\DateTimeInterface $dateStart): self
+    public function setDateStart(string $dateStart): self
     {
         $this->dateStart = $dateStart;
 
         return $this;
     }
 
-    public function getDateEnd(): ?\DateTimeInterface
+    public function getDateEnd(): ?string
     {
         return $this->dateEnd;
     }
 
-    public function setDateEnd(?\DateTimeInterface $dateEnd): self
+    public function setDateEnd(string $dateEnd): self
     {
         $this->dateEnd = $dateEnd;
 
         return $this;
     }
 
-    public function getText(): ?string
+    public function getPlace(): ?string
     {
-        return $this->text;
+        return $this->Place;
     }
 
-    public function setText(?string $text): self
+    public function setPlace(string $Place): self
     {
-        $this->text = $text;
+        $this->Place = $Place;
 
         return $this;
     }
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    public function getText(): ?string
+    {
+        return $this->Text;
+    }
 
+    public function setText(string $Text): self
+    {
+        $this->Text = $Text;
 
+        return $this;
+    }
 }

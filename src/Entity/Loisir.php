@@ -1,45 +1,42 @@
 <?php
+
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity (repositoryClass="App\Repository\LoisirRepository")
- * @ORM\Table (name="loisir")
+ * @ApiResource()
+ * @ORM\Entity(repositoryClass="App\Repository\LoisirRepository")
  */
-
 class Loisir
 {
- /**
-     * @ORM\Id
-     * @ORM\Column (type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
-    protected $id;
-    
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Name;
+    private $name;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(?string $Name): self
+    public function setName(?string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
-
-
-
-
-
-
-
-
 }

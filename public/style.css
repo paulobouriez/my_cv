@@ -121,6 +121,11 @@ li {
 	list-style-type: none;
 }
 
+h2 {
+	padding-top: 20px;
+	padding-bottom: 5px;
+}
+
 .sectionContent {
 	float: right;
 	width: 72.5%;
