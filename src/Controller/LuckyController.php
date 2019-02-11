@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Formation;
+use App\Entity\Loisir;
+use App\Entity\Experience;
 
 class LuckyController extends Controller
 {
@@ -17,7 +19,9 @@ $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
         return $this->render('lucky/index.html.twig', array(
             'number'=> $number,
             'letters' => array(),
-            'formations' => $forms
+            'formations' => $forms,
+            'experiences' =>$forms ,
+            'loisirs' => $forms,
             ));
     }
     
@@ -25,10 +29,36 @@ $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
     {
         $form = new Formation();
         
-        $form->setName('MMI');
+        $form->setName('');
         $form->setDateStart(new \DateTime());
         $form->setDateEnd(new \DateTime());
-        $form->setPlace('Grenoble');
+        $form->setPlace('');
+        $eManager = $this->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+        return $this->redirectToRoute('app_lucky_number');
+    }
+    
+     public function Experience()
+    {
+        $form = new Experience();
+        
+        $form->setName('');
+        $form->setDateStart(new \DateTime());
+        $form->setDateEnd(new \DateTime());
+        $form->setPlace('');
+        $form->setText('');
+        $eManager = $this->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+        return $this->redirectToRoute('app_lucky_number');
+    }
+    
+     public function Loisir()
+    {
+        $form = new Loisir();
+        
+        $form->setName('');
         $eManager = $this->getDoctrine()->getManager();
         $eManager->persist($form);
         $eManager->flush();

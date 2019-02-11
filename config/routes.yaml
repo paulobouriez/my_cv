@@ -8,5 +8,12 @@ app_lucky_number:
 app_formation:
     path: /create/formation
     controller: App\Controller\LuckyController::Formation
+    
+app_experience:
+    path: /create/experience
+    controller: App\Controller\LuckyController::Experience
 
+app_loisir:
+    path: /create/loisir
+    controller: App\Controller\LuckyController::Loisir
 #https://symphony-paulobouriez.c9users.io/my_cv/public/index.php/lucky/index

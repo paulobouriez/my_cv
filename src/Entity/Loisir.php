@@ -1,11 +1,11 @@
 <?php
-namespace app\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity (repositoryClass="App\Repository\LoisirRepository")
- * @ORM\Table (name="app_user")
+ * @ORM\Table (name="loisir")
  */
 
 class Loisir
@@ -17,33 +17,25 @@ class Loisir
      */
     protected $id;
     
-    /**
-     * @var string
-     * 
-     * @ORM\Column (type="string", name="name")
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $skill;
-
-    public function getSkill(): ?string
-    {
-        return $this->skill;
-    }
-
-    public function setSkill(string $skill): self
-    {
-        $this->skill = $skill;
-
-        return $this;
-    }
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private $Name;
+
+    public function getName(): ?string
+    {
+        return $this->Name;
+    }
+
+    public function setName(?string $Name): self
+    {
+        $this->Name = $Name;
+
+        return $this;
+    }
+
+
 
 
 

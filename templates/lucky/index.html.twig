@@ -58,10 +58,6 @@
 			
 			<div class="sectionContent">
 			
-				    {% for letter in letters %}
-				        {{ letter}}
-				    {% endfor %}
-			
 			
 			
 			
@@ -113,10 +109,9 @@
 			<div class="sectionTitle">
 				<h1>Education</h1>
 			</div>
-			<div class="col-md-9 col-sm-9 col-xs-12">
-				<ul>
+			<div class="col-md-9 col-sm-9 col-xs-12 sectionContent">
 				{% for formation in formations %}
-					<li class="padding-top-10">{{ formation.GetName()}}</li>
+					<li class="padding-top-10"><h2>{{formation.GetName()}}</h2></li>
 					<li class="padding-top-10">{{ formation.GetPlace()}}</li>
 				{% endfor %}
 				</ul>

@@ -117,6 +117,10 @@ section:last-child {
 	width: 25%;
 }
 
+li {
+	list-style-type: none;
+}
+
 .sectionContent {
 	float: right;
 	width: 72.5%;
