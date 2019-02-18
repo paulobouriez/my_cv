@@ -62,6 +62,20 @@ class FormationController extends AbstractController
         );
     }
     
+   /**
+     * @Route("/{id}", name="formation_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Formation $formation): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$formation->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($formation);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('index');
+    }
+    
     
     
     

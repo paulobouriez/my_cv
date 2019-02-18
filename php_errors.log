@@ -1,2 +1,3 @@
 [28-Jan-2019 08:40:52 UTC] PHP Fatal error:  Cannot declare class App\Controller\Tatoti, because the name is already in use in /home/ubuntu/workspace/my_cv/src/Controller/LuckyController.php on line 7
 [04-Feb-2019 14:15:41 UTC] PHP Fatal error:  Class 'App\Repository\EntityRepository' not found in /home/ubuntu/workspace/my_cv/src/Repository/FormationRepository.php on line 8
+[18-Feb-2019 10:35:45 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/ubuntu/workspace/my_cv/vendor/symfony/twig-bridge/Extension/CodeExtension.php on line 145

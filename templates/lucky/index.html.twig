@@ -63,9 +63,12 @@
 					<li class="padding-top-10 subDetails">{{experience.GetDateStart()}}-{{experience.GetDateEnd()}}</li>
 					<li class="padding-top-10 ">{{experience.GetPlace()}}</li>
 					<li class="padding-top-10 ">{{experience.GetText()}}</li>
+					<li><a href="{{path('experience_new') }}">Create</a> </li>
+					<li><a href="{{path('experience_edit', {'id':experience.GetId()}) }}">Edit</a> </li>
+					<li><a href="{{path('experience_delete', {'id':experience.GetId()}) }}">Delete</a>
 					{% endfor %}
 				</ul>
-			
+
 			
 			
 			
@@ -82,7 +85,10 @@
 			<div class="sectionContent">
 				<ul class="keySkills">
 				{% for loisir in loisirs %}	
-					<li class="padding-top-10">{{loisir.GetName()}}</li>
+					<li class="padding-top-10"><h2>{{loisir.GetName()}}</h2></li>
+					<li><a href="{{path('loisir_new') }}">Create</a> </li>
+					<li><a href="{{path('loisir_edit', {'id':loisir.GetId()}) }}">Edit</a> </li>
+					<li><a href="{{path('loisir_delete', {'id':loisir.GetId()}) }}">Delete</a>
 					{% endfor %}
 				</ul>
 			</div>
@@ -100,8 +106,13 @@
 					<li class="padding-top-10"><h2>{{formation.GetName()}}</h2></li>
 					<li class="padding-top-10 subDetails">{{formation.GetDateStart()}}-{{formation.GetDateEnd()}}</li>
 					<li class="padding-top-10">{{ formation.GetPlace()}}</li>
+					<li><a href="{{path('form_formation') }}">Create</a> </li>
+					<li><a href="{{path('form_formation_edit', {'id':formation.GetId()}) }}">Edit</a> </li>
+					<li><a href="{{path('formation_delete', {'id':formation.GetId()}) }}">Delete</a> </li>
 				{% endfor %}
 				</ul>
+				
+		
 			</div>
 			
 		<!--	<div class="sectionContent">

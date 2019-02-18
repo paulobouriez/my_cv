@@ -30,8 +30,8 @@ $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
         $form = new Formation();
         
         $form->setName('');
-        $form->setDateStart(new \DateTime());
-        $form->setDateEnd(new \DateTime());
+        $form->setDateStart('');
+        $form->setDateEnd('');
         $form->setPlace('');
         $eManager = $this->getDoctrine()->getManager();
         $eManager->persist($form);
@@ -41,11 +41,11 @@ $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
     
      public function Experience()
     {
-        $form = new Experience();
+        $form1 = new Experience();
         
         $form1->setName('');
-        $form1->setDateStart(new \DateTime());
-        $form1->setDateEnd(new \DateTime());
+        $form1->setDateStart('');
+        $form1->setDateEnd('');
         $form1->setPlace('');
         $form1->setText('');
         $eManager = $this->getDoctrine()->getManager();
