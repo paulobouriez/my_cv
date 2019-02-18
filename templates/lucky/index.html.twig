@@ -106,6 +106,7 @@
 					<li class="padding-top-10"><h2>{{formation.GetName()}}</h2></li>
 					<li class="padding-top-10 subDetails">{{formation.GetDateStart()}}-{{formation.GetDateEnd()}}</li>
 					<li class="padding-top-10">{{ formation.GetPlace()}}</li>
+					<li class="padding-top-10 ">{{formation.GetText()}}</li>
 					<li><a href="{{path('form_formation') }}">Create</a> </li>
 					<li><a href="{{path('form_formation_edit', {'id':formation.GetId()}) }}">Edit</a> </li>
 					<li><a href="{{path('formation_delete', {'id':formation.GetId()}) }}">Delete</a> </li>

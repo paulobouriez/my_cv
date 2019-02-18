@@ -6,7 +6,6 @@ use App\Entity\Formation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class FormationType extends AbstractType
 {
@@ -14,11 +13,10 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('Name')
-            ->add('DateStart')
-            ->add('DateEnd')
-            ->add('Place')
-            ->add('save', SubmitType::class, ['attr' => ['class'=>'save'],
-            ])
+            ->add('place')
+            ->add('datestart')
+            ->add('dateend')
+            ->add('text')
         ;
     }
 

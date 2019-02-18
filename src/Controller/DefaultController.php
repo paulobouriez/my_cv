@@ -14,18 +14,19 @@ class DefaultController extends AbstractController
     {
         $number = random_int(0, 100);
         
-$forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
+$formations = $this->getDoctrine()->getRepository(Formation::class)->findAll();
 $forms1 = $this->getDoctrine()->getRepository(Loisir::class)->findAll();
 $forms2 = $this->getDoctrine()->getRepository(Experience::class)->findAll();
 
         return $this->render('lucky/index.html.twig', array(
             'number' => $number,
             'name' => 'Paulo',
-            'formations' => $forms,
+            'formations' => $formations,
             'loisirs' => $forms1,
             'experiences' => $forms2,
             ));
     }
+
     
 public function Formation()
     {
