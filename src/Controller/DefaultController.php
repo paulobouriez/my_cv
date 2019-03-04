@@ -10,6 +10,17 @@ use App\Entity\Experience;
 
 class DefaultController extends AbstractController
 {
+    /**
+     * @Route("/admin")
+     */
+     
+     public function admin()
+     {
+         return new Response('<html><body>Admin page!</html></body>');
+     }
+    
+    
+    
     public function index()
     {
         $number = random_int(0, 100);
