@@ -21,7 +21,7 @@
 * JS: pour quelque fonctionnalité en plus
  
  # Crédit
- Paul-Alexis "Axiloz" Bouriez
+ Un code fait par:  Paul-Alexis "Axiloz" Bouriez
  
  # Pub
  Vennez voir ma chaine youtube. Je vous promets que sa sera plus intéressant que ce code, et en plus le contenu est d'une qualité certaine.
