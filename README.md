@@ -15,10 +15,10 @@
 
 # Fonctionnalité
 
- Symfony: Coeur du projet
- HTML: pour le fond
- CSS: Pour la forme
- JS: pour quelque fonctionnalité en plus
+* Symfony: Coeur du projet
+* HTML: pour le fond
+* CSS: Pour la forme
+* JS: pour quelque fonctionnalité en plus
  
  # Crédit
  Paul-Alexis "Axiloz" Bouriez
