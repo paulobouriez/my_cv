@@ -13,4 +13,17 @@
  pour éditer une information, cliquer sur "Edit"
  pour suprimer une information, cliquer sur "Delete
 
+#Fonctionnalité
 
+ Symfony: Coeur du projet
+ HTML: pour le fond
+ CSS: Pour la forme
+ JS: pour quelque fonctionnalité en plus
+ 
+ #Crédit
+ Paul-Alexis "Axiloz" Bouriez
+ 
+ #Pub
+ Vennez voir ma chaine youtube. Je vous promets que sa sera plus intéressant que ce code, et en plus le contenu est d'une qualité certaine.
+ 
+ PS: Regardez pas trop les temps de production : https://www.youtube.com/channel/UC-QSRPIzROUHQLo3B4ImlJw
